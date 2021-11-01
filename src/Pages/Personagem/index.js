@@ -2,7 +2,7 @@
 function Personagem(){
     return(
         <div>
-            ola pernagem 
+            hello personagem sen o ns
         </div>
     );
 }
