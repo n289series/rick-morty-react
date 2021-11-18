@@ -1,11 +1,29 @@
 import axios from 'axios';
 
-const api = {
-    getPersonagemByName: async () => {
-        const response = await axios.get("https://rickandmortyapi.com/api/character/2");
+const BASE_URL = "https://rickandmortyapi.com/api";
 
-        return response;
+async function basicFetch(endpoint) {
+    const URL = BASE_URL + endpoint;
+    let data  = null;
+    
+    try {
+        const response = await axios.get(URL);
+        data = response.data;
+    } catch (error) {
+        data = error.response.data;
     }
+    return data;
 }
 
-export default api
+const api = {
+    getPersonagemByName: async (name) => {
+        const res = await basicFetch(`/character/?name=${name}`);
+        return res;
+    },
+    getPersonagemById: async (id) => {
+        const res = await basicFetch(`/character/${id}`);
+        return res;
+    },
+}
+
+export default api;
