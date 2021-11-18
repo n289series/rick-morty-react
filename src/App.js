@@ -1,10 +1,10 @@
 import './App.css';
-import HeaderResponsive from './components/HeaderResponsive';
+import Routes from './Routes';
 
 function App() {
   return ( 
     <div className="App">
-      <HeaderResponsive />
+      <Routes />
     </div>
   );
 }
